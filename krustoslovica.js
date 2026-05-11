@@ -1,69 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ВАЖНО: Тези думи трябва да имат ТОЧНО толкова букви, колкото са клетките в съответната колона
+    const solutions = [
+        "МЕТАН",          // Код 1
+        "БЕЛТЪЦИ",        // Код 2
+        "САПУНИ",         // Код 3
+        "ОКСИД",          // Код 4
+        "ПОЛИМЕРИЗАЦИЯ",    // Код 5
+        "АЛКОХОЛИ",       // Код 6
+        "ЕСТЕР",          // Код 7
+        "ГЛИЦЕРОЛ",       // Код 8
+        "ВОДОРОД"         // Код 9
+    ];
+
     const columns = Array.from(document.querySelectorAll('.column')).map(col =>
         Array.from(col.querySelectorAll('.cell'))
     );
 
-    function findPosition(cell) {
-        for (let c = 0; c < columns.length; c++) {
-            const r = columns[c].indexOf(cell);
-            if (r !== -1) return { col: c, row: r };
-        }
-        return null;
-    }
+    const checkBtn = document.getElementById('check-button');
 
-    columns.forEach(colCells => {
+    // Логика за въвеждане и навигация
+    columns.forEach((colCells, colIndex) => {
         colCells.forEach((cell, rowIndex) => {
-
             cell.addEventListener('input', (e) => {
                 e.target.value = e.target.value.toUpperCase();
+                cell.classList.remove('error', 'success');
                 if (e.target.value.length === 1 && rowIndex < colCells.length - 1) {
                     colCells[rowIndex + 1].focus();
                 }
             });
+        });
+    });
 
-            cell.addEventListener('keydown', (e) => {
+    // Проверка на отговорите
+    checkBtn.addEventListener('click', () => {
+        let allCorrect = true;
 
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (rowIndex < colCells.length - 1) {
-                        colCells[rowIndex + 1].focus();
-                    }
-                }
-
-                if (e.key === 'Backspace') {
-                    if (cell.value === '') {
-                        e.preventDefault();
-                        if (rowIndex > 0) {
-                            const prev = colCells[rowIndex - 1];
-                            prev.focus();
-                            prev.value = '';
-                        }
-                    }
-                }
-
-                if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    if (rowIndex < colCells.length - 1) colCells[rowIndex + 1].focus();
-                }
-                if (e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    if (rowIndex > 0) colCells[rowIndex - 1].focus();
-                }
-                if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    const pos = findPosition(cell);
-                    if (pos && pos.col < columns.length - 1) {
-                        columns[pos.col + 1][0].focus();
-                    }
-                }
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    const pos = findPosition(cell);
-                    if (pos && pos.col > 0) {
-                        columns[pos.col - 1][0].focus();
-                    }
+        columns.forEach((colCells, colIndex) => {
+            const correctWord = solutions[colIndex];
+            
+            colCells.forEach((cell, rowIndex) => {
+                const letter = cell.value.trim().toUpperCase();
+                
+                // Ако клетката е празна или буквата не съвпада с буквата от думата в масива
+                if (letter === "" || letter !== correctWord[rowIndex]) {
+                    cell.classList.add('error');
+                    cell.classList.remove('success');
+                    allCorrect = false;
+                } else {
+                    cell.classList.add('success');
+                    cell.classList.remove('error');
                 }
             });
         });
+
+        if (allCorrect) {
+            showEndGameModal(true);
+        } else {
+            // Вместо досаден alert, само оцветяваме грешните
+            console.log("Има грешни или празни клетки.");
+        }
     });
+
+    function showEndGameModal(won) {
+        const modal = document.getElementById('game-modal');
+        if(modal) modal.style.display = 'flex';
+    }
 });

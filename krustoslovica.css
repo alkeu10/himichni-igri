@@ -125,6 +125,76 @@ body, html {
     color: var(--dark);
 }
 
+.check-container {
+    margin-top: 40px; /* Разстояние под текста на инструкциите */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.check-btn {
+    background-color: var(--dark);
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.check-btn:hover {
+    transform: translateY(-2px);
+    background-color: #333;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.check-btn:active {
+    transform: translateY(0);
+}
+
+/* Стил за оцветяване на клетките при проверка */
+.cell.error {
+    background-color: #FFDADA !important;
+    border-color: #FF4242 !important;
+}
+
+.cell.success {
+    background-color: #D4FFD4 !important;
+    border-color: #17C900 !important;
+}
+
+/* Стил за грешни/верни букви след проверка */
+.cell.error {
+    background-color: #FFDADA !important;
+    color: #FF4242 !important;
+    outline: 2px solid #FF4242;
+}
+
+.cell.success {
+    background-color: #D4FFD4 !important;
+    color: #17C900 !important;
+}
+
+/* Модални стилове (копирай от другите игри) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    align-items: center; justify-content: center;
+}
+.modal-content {
+    background: white; padding: 40px; border-radius: 20px; text-align: center;
+    max-width: 400px; width: 80%; font-family: 'Dela Gothic One', cursive;
+}
+.modal-btn { padding: 15px; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; display: block; margin-top: 10px; font-family: inherit; }
+.repeat-btn { background: #17C900; color: white; }
+.home-btn { background: #CADBFF; color: #070707; }
+
 /* ─── Responsive Breakpoints ──────────────────── */
 
 /* Tablet – shrink cells */
