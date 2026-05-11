@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Химични игри | Химордъл</title>
+    <link rel="stylesheet" href="himordul.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <a href="index.html" class="back-button">
+        <img src="images/glyphs_arrow-bold.svg" alt="Назад">
+    </a>
+
+    <main class="game-container">
+        <section class="top-section">
+            <div class="word-info">
+                <h1 class="game-title">ХИМОРДЪЛ</h1>
+                <div id="board" class="wordle-board"></div>
+            </div>
+            <div id="message-container" class="message-container"></div>
+        </section>
+
+        <section class="keyboard-section">
+            <div id="keyboard" class="keyboard">
+                </div>
+        </section>
+
+        <div id="game-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="modal-title">Край на играта!</h2>
+                <p id="modal-message"></p>
+                    <div class="modal-buttons">
+                        <button onclick="location.reload()" class="modal-btn repeat-btn">Играй пак</button>
+                        <a href="index.html" class="modal-btn home-btn">Друга игра</a>
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="himordul.js"></script>
+</body>
+</html>

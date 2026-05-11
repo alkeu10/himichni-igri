@@ -1,0 +1,176 @@
+:root {
+    --bg-color: #F9FBFF;
+    --dark: #070707;
+    --light-blue: #CADBFF;
+    --grid-inactive: #A6ABBD;
+
+    /* Responsive cell size */
+    --cell-w: 54px;
+    --cell-h: 67px;
+    --cell-gap: 4px;
+    --col-gap: 6px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: var(--bg-color);
+    font-family: 'Dela Gothic One', cursive;
+}
+
+.main-container {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.content-wrapper {
+    width: 100%;
+    padding: 120px 48px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.title {
+    color: var(--dark);
+    font-size: clamp(22px, 4vw, 36px);
+    width: 100%;
+}
+
+.game-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 140px;
+}
+
+/* Back Button Layout */
+.back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+}
+
+/* ─── Grid Layout ─────────────────────────────── */
+.grid-layout {
+    display: flex;
+    gap: var(--col-gap);
+    align-items: flex-start;
+    flex-shrink: 0;
+    padding-top: 400px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cell-gap);
+}
+
+/* Offsets pull each column UP so its active cell sits on the same row */
+.offset-1 { margin-top: calc(-1 * (var(--cell-h) + var(--cell-gap))); }
+.offset-2 { margin-top: calc(-4 * (var(--cell-h) + var(--cell-gap))); }
+.offset-3 { margin-top: calc(-5 * (var(--cell-h) + var(--cell-gap))); }
+.offset-4 { margin-top: calc(-1 * (var(--cell-h) + var(--cell-gap))); }
+.offset-5 { margin-top: calc(-3 * (var(--cell-h) + var(--cell-gap))); }
+.offset-6 { margin-top: calc(-4 * (var(--cell-h) + var(--cell-gap))); }
+
+/* ─── Cell ────────────────────────────────────── */
+.cell {
+    width: var(--cell-w);
+    height: var(--cell-h);
+    background: var(--grid-inactive);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: clamp(16px, 2.5vw, 24px);
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: filter 0.1s ease;
+}
+
+.cell.active {
+    background: var(--light-blue);
+    color: var(--dark);
+}
+
+.cell:focus {
+    outline: 3px solid var(--dark);
+    filter: brightness(1.1);
+}
+
+/* ─── Clues ───────────────────────────────────── */
+.clues-text {
+    padding-top: 300px;
+    flex: 1; /* Take remaining horizontal space */
+}
+
+.clue-header {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--dark);
+}
+
+.clue-body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height: 1.6;
+    color: var(--dark);
+}
+
+/* ─── Responsive Breakpoints ──────────────────── */
+
+/* Tablet – shrink cells */
+@media (max-width: 900px) {
+    :root {
+        --cell-w: 42px;
+        --cell-h: 52px;
+    }
+
+    .content-wrapper {
+        padding: 80px 24px 48px;
+    }
+
+    .game-flex {
+        gap: 40px;
+        padding: 0 16px;
+    }
+}
+
+/* Mobile – cells shrink further, layout stacks */
+@media (max-width: 600px) {
+    :root {
+        --cell-w: 32px;
+        --cell-h: 40px;
+        --cell-gap: 3px;
+        --col-gap: 4px;
+    }
+
+    .content-wrapper {
+        padding: 70px 16px 40px;
+        gap: 24px;
+    }
+
+    .game-flex {
+        flex-direction: column;
+        gap: 28px;
+        padding: 0;
+    }
+
+    .grid-layout {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .clues-text {
+        max-width: 100%;
+        padding-top: 0;
+    }
+}   

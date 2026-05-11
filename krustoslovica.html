@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Химични игри | Кръстословица</title>
+    <link rel="stylesheet" href="krustoslovica.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-container">
+    <!-- SVG Back Button -->
+    <a href="index.html" class="back-button">
+        <img src="images/glyphs_arrow-bold.svg" alt="Назад">
+    </a>
+
+    <div class="content-wrapper">
+    <div class="title">КРЪСТОСЛОВИЦА</div>
+    
+    <div class="game-flex">
+        <div class="grid-layout">
+            <!-- Col 1 (М): active at 0, 7 below = 8 total -->
+            <div class="column" data-col="0">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+            <!-- Col 2 (Е): 1 above + active + 7 below = 9 total, active at 1 -->
+            <div class="column offset-1" data-col="1">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+            <!-- Col 3 (Н): 2 above + active + 6 below = 9 total, active at 2 -->
+            <div class="column offset-2" data-col="2">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+
+            <div class="column offset-2" data-col="0">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+            </div>
+            <!-- Col 4 (Д): 3 above + active + 6 below = 10 total, active at 3 -->
+            <div class="column offset-3" data-col="3">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+            <!-- Col 5 (Е): active at 0, 7 below = 8 total -->
+            <div class="column offset-4" data-col="4">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+            <!-- Col 6 (Л): active at 0, 7 below = 8 total -->
+            <div class="column offset-5" data-col="5">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+            <!-- Col 7 (Е): active at 0, 5 below = 6 total -->
+            <div class="column offset-6" data-col="6">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+            <!-- Col 9 (В): active at 0, 5 below = 6 total -->
+            <div class="column" data-col="8">
+                <input type="text" maxlength="1" class="cell active">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+                <input type="text" maxlength="1" class="cell">
+            </div>
+        </div>
+
+        <div class="clues-text">
+            <span class="clue-header">Вертикално:<br/></span>
+            <span class="clue-body">
+                1. Най-простият алкан.<br/>
+                2. Природни полимери изградени от алфа аминокиселини.<br/>
+                3. Общото наименование на солите на висшите мастни киселини.<br/>
+                4. Съединение на елемент с кислород.<br/>
+                5. Процес на свързване на мономери в макромолекула.<br/>
+                6. Органични съединения съдържащи група -OH.<br/>
+                7. Продукт на взаимодействието между алкохол и киселина.<br/>
+                8. Тривалентен алкохол част на всички естествени мазнини.<br/>
+                9. Първият елемент от химичната таблица.
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src="krustoslovica.js"></script>
+</body>
+</html>
