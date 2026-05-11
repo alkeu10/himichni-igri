@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/himichni-igri/:path*",
+      "destination": "https://himichni-igri.vercel.app/:path*"
+    }
+  ]
+}
